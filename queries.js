@@ -12,7 +12,8 @@ const getUsers = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+    // response.status(200).json(results.rows)
+    response.render('index.ejs', { users: results })
   })
 }
 
@@ -34,8 +35,9 @@ const createUser = (request, response) => {
     if (error) {
       throw error
     }
+    // response.status(201).send(`User added with ID: ${results.rows[0].id} ${JSON.stringify(request.body)}`)
     console.log(request.body)
-    response.status(201).send(`User added with ID: ${results.rows[0].id} ${JSON.stringify(request.body)}`)
+    response.redirect('/')
   })
 }
 
@@ -50,7 +52,8 @@ const updateUser = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`User modified with ID: ${id}`)
+      // response.status(200).send(`User modified with ID: ${id}`)
+      response.redirect('/')
     }
   )
 }
@@ -62,7 +65,8 @@ const deleteUser = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`User deleted with ID: ${id}`)
+    // response.status(200).send(`User deleted with ID: ${id}`)
+    response.redirect('/')
   })
 }
 

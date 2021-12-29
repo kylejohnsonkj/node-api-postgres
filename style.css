@@ -1,27 +1,35 @@
-.create-container {
+div {
   max-width: 800px;
   margin: 60px auto;
   background-color: rgba(225, 225, 225, 0.5);
   border: 5px solid rgb(225, 225, 225);
 }
-.create-container form {
+div form {
   display: flex;
   flex-wrap: wrap;
   margin: 0;
 }
-.create-container form input {
+div form input {
   margin: 15px;
   border: 1px solid rgb(225, 225, 225);
   padding: 0.4rem;
 }
-.create-container form input {
-  flex: 1 1 200px;
+div form input[placeholder="Name"] {
+  margin-left: 110px;
 }
-.create-container form input[type="email"] {
-  flex: 1 1 250px;
+div form input[name="id"] {
+  width: 50px;
 }
-.create-container form input[type="submit"] {
+div form input[name="name"] {
+  width: 150px;
+}
+div form input[name="email"] {
+  width: 250px;
+}
+div form input[type="submit"] {
   border-radius: 3px;
   background-color: gray;
   color: white;
+  cursor: pointer;
+  flex: 1;
 }

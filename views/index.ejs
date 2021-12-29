@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+  <title>User Management</title>
+</head>
+<body>
+  <div>
+    <form method="POST" action="/users">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="submit" value="create user">
+    </form>
+  </div>
+  <div>
+    <% for(var i = 0; i < users.rows.length; i++) { %>
+      <form method="POST">
+        <input type="text" name="id" readonly value="<%= users.rows[i].id %>">
+        <input type="text" name="name" value="<%= users.rows[i].name %>">
+        <input type="text" name="email" value="<%= users.rows[i].email %>">
+        <input type="submit" value="update" formaction="/users/<%= users.rows[i].id %>?_method=PUT">
+        <input type="submit" value="delete" formaction="/users/<%= users.rows[i].id %>?_method=DELETE">
+      </form>
+    <% } %>
+  </div>
+</body>
+</html>
